@@ -66,7 +66,7 @@ class Bootstrap
             $itemData['class'] = 'form-control';
         }
         $output  = '<div class="form-group">';
-        $output .=      FormItem::file($name, $label, $htmlAttributes);
+        $output .=      FormItem::file($name, $label, $itemData);
         $output .= '</div>';
 
         return $output;
@@ -101,6 +101,23 @@ class Bootstrap
         
         $output  = '<div class="form-group">';
         $output .=      FormItem::textarea($name, $value, $label, $itemData);
+        $output .= '</div>';
+
+        return $output;
+    }
+
+    public static function formCheckbox($name, $value, $checked, $itemData = array())
+    {
+        $label = isset($itemData['label']) ? $itemData['label'] : '';
+        unset($itemData['label']);
+        if (isset($itemData['class'])) {
+            $itemData['class'] = 'form-control ' . $itemData['class'];
+        } else {
+            $itemData['class'] = 'form-control';
+        }
+        
+        $output  = '<div class="form-group">';
+        $output .=      FormItem::checkbox($name, $value, $checked, $label, $itemData);
         $output .= '</div>';
 
         return $output;
