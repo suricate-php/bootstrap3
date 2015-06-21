@@ -1,7 +1,7 @@
 {
     "name": "suricate-php/bootstrap3",
     "description": "Suricate PHP Bootstrap3 helpers",
-    "keywords": ["framework", "suricate"],
+    "keywords": ["bootstrap", "suricate"],
     "authors": [
         {
             "name": "Mathieu LESNIAK",
