@@ -89,6 +89,7 @@ class Bootstrap
         return $output;
     }
 
+
     public static function formTextArea($name, $value, $itemData = array())
     {
         $label          = isset($itemData['label']) ? $itemData['label'] : '';
@@ -118,6 +119,23 @@ class Bootstrap
         
         $output  = '<div class="form-group">';
         $output .=      FormItem::checkbox($name, $value, $checked, $label, $itemData);
+        $output .= '</div>';
+
+        return $output;
+    }
+
+    public static function formRadio($name, $availableValues, $value, $itemData = array())
+    {
+         $label          = isset($itemData['label']) ? $itemData['label'] : '';
+        unset($itemData['label']);
+        if (isset($itemData['class'])) {
+            $itemData['class'] = 'form-control ' . $itemData['class'];
+        } else {
+            $itemData['class'] = 'form-control';
+        }
+        
+        $output  = '<div class="form-group">';
+        $output .=      FormItem::radio($name, $availableValues, $value, $label, $itemData);
         $output .= '</div>';
 
         return $output;
